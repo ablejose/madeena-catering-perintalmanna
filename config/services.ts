@@ -24,14 +24,6 @@ export const services: Service[] = [
     icon: "PartyPopper",
   },
   {
-    id: "live-counters",
-    title: "Live Counters & Beverages",
-    blurb:
-      "Welcome drinks, fresh juice bars and live serving counters that keep guests looked after.",
-    bullets: ["Welcome drinks & juice bars", "Live serving counters", "Uniformed hospitality staff"],
-    icon: "GlassWater",
-  },
-  {
     id: "bulk-catering",
     title: "Function & Bulk Catering",
     blurb:

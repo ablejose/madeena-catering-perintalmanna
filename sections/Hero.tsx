@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
-import { Img } from "@/components/ui/Img";
 import { site, waLink, telLink } from "@/config/site";
 
 export default function Hero() {
@@ -37,7 +36,22 @@ export default function Hero() {
         className="absolute inset-0"
         style={{ willChange: "transform", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
       >
-        <Img src="/images/hero.webp" alt="An evening event catered and staged by Madeena, lit with warm lights" fallbackSeed="madeena-hero" priority />
+        {reduce ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src="/images/hero-poster.webp" alt="A celebration catered and staged by Madeena" className="h-full w-full object-cover" />
+        ) : (
+          <video
+            className="h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster="/images/hero-poster.webp"
+          >
+            <source src="/hero.mp4" type="video/mp4" />
+          </video>
+        )}
       </div>
 
       <div
@@ -50,17 +64,18 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto flex h-full max-w-shell flex-col items-center justify-center px-6 text-center">
         <p className="eyebrow text-saffron">Perintalmanna · Malappuram, Kerala</p>
-        <h1 className="display-xl mt-5 text-ivory" style={{ fontSize: "clamp(2.3rem, 5.5vw, 4.6rem)" }}>
-          Madeena Catering
-          <br />
-          <span className="italic" style={{ color: "var(--saffron)" }}>
-            &amp; Event Management
+        <h1 className="mt-5 flex flex-col items-center">
+          <span className="display-xl" style={{ color: "var(--saffron)", fontSize: "clamp(2.9rem, 7vw, 5.6rem)" }}>
+            Madeena
+          </span>
+          <span
+            className="display mt-1 text-ivory"
+            style={{ fontSize: "clamp(1.05rem, 2.6vw, 2rem)", letterSpacing: "0.06em", color: "#F7F1E7" }}
+          >
+            Catering &amp; Event Management
           </span>
         </h1>
-        <p className="body-copy mx-auto mt-6 max-w-xl text-ivory/85">
-          Wedding buffets, live counters and complete event setup — cooked fresh, served hot,
-          and managed from first call to last plate.
-        </p>
+
         <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
           <Button href={waLink()} variant="whatsapp" external>
             Enquire on WhatsApp

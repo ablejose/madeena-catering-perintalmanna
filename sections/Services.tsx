@@ -1,8 +1,8 @@
-import { UtensilsCrossed, PartyPopper, GlassWater, Truck, type LucideIcon } from "lucide-react";
+import { UtensilsCrossed, PartyPopper, Truck, type LucideIcon } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import { services } from "@/config/services";
 
-const icons: Record<string, LucideIcon> = { UtensilsCrossed, PartyPopper, GlassWater, Truck };
+const icons: Record<string, LucideIcon> = { UtensilsCrossed, PartyPopper, Truck };
 
 export default function Services() {
   return (
@@ -15,7 +15,7 @@ export default function Services() {
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => {
             const Icon = icons[s.icon] ?? UtensilsCrossed;
             return (
