@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X, Phone } from "lucide-react";
@@ -11,6 +11,8 @@ import { cn } from "@/lib/utils";
 export default function Header() {
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
+  // Target to scroll to AFTER the mobile drawer has finished closing.
+  const pendingHash = useRef<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setSolid(window.scrollY > 60);
@@ -19,12 +21,45 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Lock body scroll only while the drawer is open.
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  // Close on Escape.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
+  // Tap a mobile nav link: remember the target, close the drawer, and scroll
+  // only once the close animation has finished (see onExitComplete below).
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      pendingHash.current = href;
+    }
+    setOpen(false);
+  };
+
+  const runPendingScroll = () => {
+    const href = pendingHash.current;
+    pendingHash.current = null;
+    if (!href) return;
+    const el = document.querySelector(href) as HTMLElement | null;
+    if (!el) return;
+    const header = document.querySelector("header");
+    const offset = header ? header.getBoundingClientRect().height : 0;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: "smooth" });
+  };
 
   return (
     <header
@@ -83,11 +118,26 @@ export default function Header() {
         </button>
       </div>
 
-      <AnimatePresence>
+      <AnimatePresence onExitComplete={runPendingScroll}>
         {open && (
           <motion.div className="fixed inset-0 z-[60] lg:hidden" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            {/* Backdrop — tap outside the panel to close */}
             <motion.div
-              className="absolute inset-0 flex flex-col bg-espresso px-6 pb-8 pt-5 text-ivory"
+              aria-hidden
+              onClick={() => setOpen(false)}
+              className="absolute inset-0 bg-ink/60 backdrop-blur-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            />
+
+            {/* Drawer */}
+            <motion.div
+              role="dialog"
+              aria-modal="true"
+              aria-label="Menu"
+              className="absolute right-0 top-0 flex h-full w-[82%] max-w-sm flex-col bg-espresso px-6 pb-8 pt-5 text-ivory shadow-[0_0_60px_rgba(0,0,0,0.5)]"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -102,17 +152,17 @@ export default function Header() {
               <nav className="mt-10 flex flex-col gap-1" aria-label="Mobile">
                 {navLinks.map((l, i) => (
                   <motion.div key={l.href} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.12 + i * 0.08 }}>
-                    <Link href={l.href} onClick={() => setOpen(false)} className="block border-b border-ivory/10 py-4 font-display text-3xl">
+                    <a href={l.href} onClick={(e) => handleNavClick(e, l.href)} className="block border-b border-ivory/10 py-4 font-display text-3xl">
                       {l.label}
-                    </Link>
+                    </a>
                   </motion.div>
                 ))}
               </nav>
               <div className="mt-auto flex flex-col gap-3">
-                <Button href={waLink()} variant="whatsapp" external>
+                <Button href={waLink()} variant="whatsapp" external onClick={() => setOpen(false)}>
                   Chat on WhatsApp
                 </Button>
-                <Button href={telLink} variant="outline" className="border-ivory/50 text-ivory">
+                <Button href={telLink} variant="outline" className="border-ivory/50 text-ivory" onClick={() => setOpen(false)}>
                   Call {site.phone}
                 </Button>
               </div>
