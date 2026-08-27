@@ -66,10 +66,10 @@ export default function Gallery() {
           </div>
         </Reveal>
 
-        {/* VIDEOS — 3 clips, 0.8s slide transition, manual navigation */}
+        {/* VIDEOS — 3 clips, one at a time, ~half width, 0.8s slide transition, manual navigation */}
         <Reveal className="mt-14" delay={0.1}>
           <p className="eyebrow mb-4 text-muted">Videos</p>
-          <div className="relative overflow-hidden rounded-brand bg-espresso">
+          <div className="relative mx-auto w-full overflow-hidden rounded-brand bg-espresso md:w-1/2">
             <div
               className="flex"
               style={{

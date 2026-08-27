@@ -30,7 +30,9 @@ export default function Header() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        solid ? "border-b border-sand/70 bg-[rgba(247,241,231,0.88)] backdrop-blur-[16px]" : "bg-transparent"
+        solid
+          ? "border-b border-sand/70 bg-[rgba(247,241,231,0.88)] backdrop-blur-[16px]"
+          : "border-b border-espresso/30 bg-[rgba(36,28,21,0.92)] backdrop-blur-[10px]"
       )}
     >
       <div className="mx-auto flex max-w-shell items-center justify-between px-5 py-4 md:px-8">
