@@ -6,7 +6,7 @@ import { site, waLink, telLink } from "@/config/site";
 
 export default function Contact() {
   return (
-    <section id="contact" aria-labelledby="contact-heading" className="bg-cream py-24 md:py-28">
+    <section id="contact" aria-labelledby="contact-heading" className="bg-white py-12 md:py-16">
       <div className="mx-auto max-w-shell px-6">
         <Reveal>
           <div className="max-w-2xl">

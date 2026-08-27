@@ -31,7 +31,7 @@ export default function Gallery() {
   const strip = [...galleryImages, ...galleryImages];
 
   return (
-    <section id="gallery" aria-labelledby="gallery-heading" className="bg-cream py-24 md:py-28">
+    <section id="gallery" aria-labelledby="gallery-heading" className="bg-white py-12 md:py-16">
       <div className="mx-auto max-w-shell px-6">
         <Reveal>
           <p className="eyebrow">Our work</p>

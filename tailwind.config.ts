@@ -13,7 +13,7 @@ const config: Config = {
         ink: "#1E1712",
         espresso: "#241C15",
         ivory: "#FFFFFF",
-        cream: "#FFFFFF",
+        cream: "#FDFAF3",
         sand: "#E8DCC7",
         muted: "#6F665A",
         saffron: "#C4892E",

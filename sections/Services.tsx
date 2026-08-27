@@ -6,7 +6,7 @@ const icons: Record<string, LucideIcon> = { UtensilsCrossed, PartyPopper, Truck 
 
 export default function Services() {
   return (
-    <section id="services" aria-labelledby="services-heading" className="bg-ivory py-24 md:py-28">
+    <section id="services" aria-labelledby="services-heading" className="bg-white py-12 md:py-16">
       <div className="mx-auto max-w-shell px-6">
         <Reveal>
           <p className="eyebrow">What we do</p>

@@ -27,7 +27,7 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" aria-labelledby="about-heading" className="bg-ivory py-24 md:py-28">
+    <section id="about" aria-labelledby="about-heading" className="bg-white py-12 md:py-16">
       <div className="mx-auto grid max-w-shell grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2">
         <Reveal>
           <div>
