@@ -44,7 +44,7 @@ export default function About() {
 
         <Reveal delay={0.1}>
           <figure className="overflow-hidden rounded-brand" style={{ aspectRatio: "4 / 5" }}>
-            <Img src="/images/about.webp" alt="A wedding celebration catered by Madeena under warm lights" fallbackSeed="madeena-about" />
+            <Img src="/images/madeena-photo-1.webp" alt="Grand indoor banquet set with gold chairs and chandelier, styled by Madeena" fallbackSeed="madeena-about" />
           </figure>
         </Reveal>
       </div>

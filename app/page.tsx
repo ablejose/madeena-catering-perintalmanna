@@ -13,9 +13,9 @@ export default function HomePage() {
       <Hero />
       <TrustBar />
       <Gallery />
-      <InstagramCta />
       <Services />
       <About />
+      <InstagramCta />
       <Contact />
       <Footer />
     </main>
