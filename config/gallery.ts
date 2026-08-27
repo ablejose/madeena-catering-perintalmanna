@@ -32,7 +32,7 @@ export const galleryImages: GalleryItem[] = [
  * (Move to Cloudinary later by swapping these src/poster URLs.)
  */
 export const galleryVideos: GalleryVideo[] = [
-  { src: "/videos/madeena-video-1.mp4", poster: "/images/madeena-video-1.webp", alt: "Floral wedding stage with copper buffet chafing dishes" },
+  { src: "/videos/madeena-video-1.mp4", poster: "/images/madeena-video-1.webp", alt: "Grand floral wedding mandap with a flower-lined entrance walkway" },
   { src: "/videos/madeena-video-2.mp4", poster: "/images/madeena-video-2.webp", alt: "Guests dining at a large catered function" },
   { src: "/videos/madeena-video-3.mp4", poster: "/images/madeena-video-3.webp", alt: "Live welcome-drinks counter at an event hall" },
   { src: "/videos/madeena-video-4.mp4", poster: "/images/madeena-video-4.webp", alt: "Banquet hall set with buffet stations and dressed tables" },
