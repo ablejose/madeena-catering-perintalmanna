@@ -11,8 +11,8 @@ export default function HomePage() {
     <main>
       <Hero />
       <TrustBar />
-      <Services />
       <Gallery />
+      <Services />
       <About />
       <Contact />
       <Footer />

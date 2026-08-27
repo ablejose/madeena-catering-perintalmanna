@@ -124,6 +124,22 @@ html.lenis body {
   }
 }
 
+/* Right-to-left image strip (Our work) */
+@keyframes marquee-rtl {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee-rtl var(--marquee-duration, 26s) linear infinite;
+}
+.marquee-viewport:hover .marquee-track {
+  animation-play-state: paused;
+}
+
 :focus-visible {
   outline: 2px solid var(--saffron);
   outline-offset: 3px;
