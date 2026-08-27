@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
-import { site, waLink, telLink } from "@/config/site";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
+import { waLink } from "@/config/site";
 
 export default function Hero() {
   const mediaRef = useRef<HTMLDivElement>(null);
@@ -63,14 +64,19 @@ export default function Hero() {
       />
 
       <div className="relative z-10 mx-auto flex h-full max-w-shell flex-col items-center justify-center px-6 text-center">
-        <p className="eyebrow text-saffron">Perintalmanna · Malappuram, Kerala</p>
+        <p className="eyebrow" style={{ color: "#ffffff", textShadow: "0 1px 20px rgba(255,255,255,0.45)" }}>
+          Perintalmanna · Malappuram, Kerala
+        </p>
         <h1 className="mt-5 flex flex-col items-center">
-          <span className="display-xl" style={{ color: "var(--saffron)", fontSize: "clamp(2.9rem, 7vw, 5.6rem)" }}>
+          <span
+            className="display-xl"
+            style={{ color: "#ffffff", fontSize: "clamp(2.9rem, 7vw, 5.6rem)", textShadow: "0 2px 34px rgba(255,255,255,0.4)" }}
+          >
             Madeena
           </span>
           <span
-            className="display mt-1 text-ivory"
-            style={{ fontSize: "clamp(1.05rem, 2.6vw, 2rem)", letterSpacing: "0.06em", color: "#F7F1E7" }}
+            className="display mt-1"
+            style={{ fontSize: "clamp(1.05rem, 2.6vw, 2rem)", letterSpacing: "0.06em", color: "#ffffff" }}
           >
             Catering &amp; Event Management
           </span>
@@ -78,10 +84,10 @@ export default function Hero() {
 
         <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
           <Button href={waLink()} variant="whatsapp" external>
-            Enquire on WhatsApp
+            <WhatsAppIcon size={18} /> Enquire on WhatsApp
           </Button>
-          <Button href={telLink} variant="outline" className="border-ivory/60 text-ivory hover:bg-ivory/10">
-            Call {site.phone}
+          <Button href="#gallery" variant="outline" className="border-ivory/60 text-ivory hover:bg-ivory/10">
+            View our work
           </Button>
         </div>
       </div>

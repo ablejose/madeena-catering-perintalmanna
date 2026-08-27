@@ -12,8 +12,8 @@ const config: Config = {
       colors: {
         ink: "#1E1712",
         espresso: "#241C15",
-        ivory: "#F7F1E7",
-        cream: "#FDFAF3",
+        ivory: "#FFFFFF",
+        cream: "#FFFFFF",
         sand: "#E8DCC7",
         muted: "#6F665A",
         saffron: "#C4892E",

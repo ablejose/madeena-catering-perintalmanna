@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { MessageCircle } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { waLink } from "@/config/site";
 
 export default function WhatsAppFab() {
@@ -34,7 +34,7 @@ export default function WhatsAppFab() {
           transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.5 }}
           style={pulsed ? { animation: "pulse-ring 2s ease-out 1" } : undefined}
         >
-          <MessageCircle size={18} />
+          <WhatsAppIcon size={18} />
           <span className="hidden sm:inline">Chat with us</span>
         </motion.a>
       )}

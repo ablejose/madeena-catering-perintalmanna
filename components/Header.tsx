@@ -31,7 +31,7 @@ export default function Header() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
         solid
-          ? "border-b border-sand/70 bg-[rgba(247,241,231,0.88)] backdrop-blur-[16px]"
+          ? "border-b border-sand/70 bg-[rgba(255,255,255,0.88)] backdrop-blur-[16px]"
           : "border-b border-espresso/30 bg-[rgba(36,28,21,0.92)] backdrop-blur-[10px]"
       )}
     >
