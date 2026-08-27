@@ -60,7 +60,7 @@ export default function Gallery() {
                     onClick={() => setActive(i % galleryImages.length)}
                     aria-label={`Open image: ${item.alt}`}
                     className="group relative block overflow-hidden rounded-brand"
-                    style={{ width: "clamp(480px, 68vw, 760px)", aspectRatio: "16 / 10" }}
+                    style={{ width: "clamp(240px, 34vw, 380px)", aspectRatio: "16 / 10" }}
                   >
                     <Img
                       src={item.src}

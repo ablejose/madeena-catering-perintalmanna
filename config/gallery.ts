@@ -13,15 +13,15 @@ export interface GalleryVideo {
 /**
  * OUR WORK — IMAGES.
  * Photos shown in the right-to-left auto-scrolling strip.
- * Self-hosted under /public/images (business Google profile + client-supplied event photos).
- * (madeena-photo-1 is featured in the About section, so it is not repeated here.)
+ * Self-hosted under /public/images (business Google profile photos).
+ * (The two client event photos WA0047/WA0048 are featured as the About section's
+ *  0.8s swapping pair, so they are not repeated here.)
  */
 export const galleryImages: GalleryItem[] = [
   { src: "/images/g1.webp", alt: "Floral wedding stage décor by Madeena" },
   { src: "/images/g2.webp", alt: "Fresh fruit and salad buffet spread" },
   { src: "/images/g6.webp", alt: "Banquet hall set for a reception" },
   { src: "/images/g7.webp", alt: "Cultural performance at a celebration" },
-  { src: "/images/madeena-photo-2.webp", alt: "Outdoor evening banquet with floral table styling" },
 ];
 
 /**
@@ -45,5 +45,5 @@ export const gallerySettings = {
   /** Video carousel slide transition (seconds). */
   videoTransitionSeconds: 0.8,
   /** Time for one full loop of the image strip (seconds). Higher = slower. */
-  imageScrollSeconds: 34,
+  imageScrollSeconds: 26,
 } as const;
