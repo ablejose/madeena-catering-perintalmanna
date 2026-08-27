@@ -65,7 +65,7 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto flex h-full max-w-shell flex-col items-center justify-center px-6 text-center">
         <p className="eyebrow" style={{ color: "#ffffff", textShadow: "0 1px 20px rgba(255,255,255,0.45)" }}>
-          Perintalmanna · Malappuram, Kerala
+          Perintalmanna · Malappuram
         </p>
         <h1 className="mt-5 flex flex-col items-center">
           <span
